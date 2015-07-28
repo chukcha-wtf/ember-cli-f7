@@ -7,6 +7,8 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
 
+    app.import('vendor/css/ember-cli-f7.css');
+
     var bowerDirectory = app.bowerDirectory;
     app.import(bowerDirectory + '/framework7/dist/css/framework7.ios.css');
     app.import(bowerDirectory + '/framework7/dist/css/framework7.ios.colors.css');
