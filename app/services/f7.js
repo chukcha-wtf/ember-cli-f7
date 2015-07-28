@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-f7/services/f7';
