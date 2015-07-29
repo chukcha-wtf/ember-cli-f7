@@ -14,9 +14,7 @@ export default Ember.Component.extend({
 
   observeSortable: Ember.observer('sortable', function(){
     if (this.get('sortable')) {
-      Ember.run.later(()=>{
-        this.get('f7').sortableOpen('.sortable');
-      }, 10)
+      this.get('f7').sortableOpen('.sortable');
     } else {
       this.get('f7').sortableClose('.sortable');
     }

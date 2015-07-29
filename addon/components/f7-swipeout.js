@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     Ember.run.scheduleOnce('afterRender', () => {
       var elem = parent.children()[index];
       if(elem) {
-        $(parent.children()[index]).before(clone);
+        Ember.$(parent.children()[index]).before(clone);
       } else {
         parent.append(clone);
       }
