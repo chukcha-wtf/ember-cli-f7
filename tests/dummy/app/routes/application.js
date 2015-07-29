@@ -7,5 +7,24 @@ export default Ember.Route.extend({
         return `Item ${item}`;
       })
     });
+  },
+
+  actions: {
+    refresh(deferred) {
+      // simulate data fetching
+      Ember.run.later(function(){
+        deferred.resolve();
+      }, 1000);
+    },
+
+    populateData(deferred) {
+      let items = Ember.A(this.get('controller.items'));
+      Ember.run.later(function(){
+        items.addObjects([21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32].map((item)=>{
+                            return `Item ${item}`;
+                          }));
+        deferred.resolve();
+      }, 1000);
+    }
   }
 });

@@ -18,7 +18,10 @@ body > .ember-view {
     top: 44px;
 }
 
-
 .navbar-fixed .page > .searchbar-holder ~ .page-content, .navbar-through .page > .searchbar-holder ~ .page-content, .navbar-fixed > .searchbar-holder ~ .page-content, .navbar-through > .searchbar-holder ~ .page-content {
     padding-top: 88px;
+}
+
+.page-content {
+  display: block;
 }

@@ -27,7 +27,7 @@ export default Ember.Component.extend({
   },
 
   onQueryChanges: Ember.observer('query', function(){
-      this.sendAction('action', this.get('query'));
+    this.sendAction('action', this.get('query'));
   }),
 
   addOverlay() {

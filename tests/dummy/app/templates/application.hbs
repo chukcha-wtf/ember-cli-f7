@@ -15,24 +15,16 @@
       <!-- Top Navbar-->
       <f7-navbar>
         <div class="left">
-          <a class="link icon-only" href="#" {{action 'panelLeft'}}>
-            <i class="icon icon-bars"></i>
-          </a>
+          <f7-toggle-panel direction="left"></f7-toggle-panel>
         </div>
         <div class="center sliding">Awesome App</div>
         <div class="right">
-          <a class="link" href="#" {{action 'toggleSortable'}}>
-            {{#if sortable}}
-              Done
-            {{else}}
-              Sort
-            {{/if}}
-          </a>
+          <f7-toggle-sortable></f7-toggle-sortable>
         </div>
       </f7-navbar>
       <f7-search-bar searchIn=".page .item-title"></f7-search-bar>
       <!-- Scrollable page content -->
-      <div class="page-content">
+      <f7-page-content onPullToRefresh="refresh" onInfiniteScroll="populateData">
         <div class="content-block-title">Welcome To My Awesome App</div>
 
         <div class="list-block list-block-search searchbar-found">
@@ -46,7 +38,7 @@
             {{/each}}
           </ul>
         </div>
-      </div>
+      </f7-page-content>
       <!-- Bottom Toolbar-->
       <div class="toolbar">
         <div class="toolbar-inner">
