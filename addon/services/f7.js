@@ -11,7 +11,7 @@ f7.init = function(){
 
 let preloaderTimeout = null;
 
-export default Ember.Service.extend({
+export default Ember.Service.extend(f7, {
   showPreloader(options) {
     options = options || {};
 

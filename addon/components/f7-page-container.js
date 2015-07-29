@@ -4,10 +4,13 @@ import layout from '../templates/components/f7-page-container';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':page', 'navbar:navbar-through', 'toolbar:toolbar-through'],
+  navbar: undefined,
+  toolbar: undefined,
+  searchbar: undefined,
 
   feature(name, selector) {
     if (this.get(name) === undefined) {
-      this.set(name, this.$(selector).length > 0);
+      this.set(name, Ember.$(selector).length > 0);
     }
   },
 
@@ -18,12 +21,12 @@ export default Ember.Component.extend({
       this.feature('navbar', '.navbar');
       this.feature('toolbar', '.toolbar');
       this.feature('searchBar', '.searchbar');
-    },1);
+    }, 0);
   },
 
   initSearchBar: Ember.observer('searchBar', function(){
     if (this.get('searchBar')) {
-      this.get('f7').initSearchBar(this.$());
+      this.get('f7').initSearchbar(this.$());
     }
   })
 });

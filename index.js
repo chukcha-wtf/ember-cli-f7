@@ -10,9 +10,10 @@ module.exports = {
     app.import('vendor/css/ember-cli-f7.css');
 
     var bowerDirectory = app.bowerDirectory;
+    var isAndroid = false;
 
     // TODO: find a way to load OS dependent css
-    if (false) {
+    if (isAndroid) {
       app.import(bowerDirectory + '/framework7/dist/css/framework7.material.css');
       app.import(bowerDirectory + '/framework7/dist/css/framework7.material.colors.css');
     } else {

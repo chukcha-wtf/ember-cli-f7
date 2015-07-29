@@ -1,3 +1,24 @@
 body > .ember-view {
   height: 100%;
 }
+
+.searchbar-holder {
+
+}
+
+.page > .searchbar-holder {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.navbar-fixed .page > .searchbar-holder, .navbar-through .page > .searchbar-holder, .navbar-fixed > .searchbar-holder, .navbar-through > .searchbar-holder {
+    top: 44px;
+}
+
+
+.navbar-fixed .page > .searchbar-holder ~ .page-content, .navbar-through .page > .searchbar-holder ~ .page-content, .navbar-fixed > .searchbar-holder ~ .page-content, .navbar-through > .searchbar-holder ~ .page-content {
+    padding-top: 88px;
+}

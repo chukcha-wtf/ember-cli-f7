@@ -8,5 +8,6 @@ export function initialize(instance) {
 
 export default {
   name: 'application',
+  // after: 'f7-service',
   initialize: initialize
 };

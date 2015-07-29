@@ -1,5 +1,11 @@
 <!-- Status bar overlay for full screen mode (PhoneGap) -->
 <div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-reveal">
+  <div class="content-block">
+    <p>Left Panel content here</p>
+  </div>
+</div>
 <!-- Views -->
 <div class="views">
   <!-- Your main view, should have "view-main" class -->
@@ -7,19 +13,38 @@
     <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
     <f7-page-container>
       <!-- Top Navbar-->
-      <div class="navbar">
-        <div class="navbar-inner">
-          <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-          <div class="center sliding">Awesome App</div>
+      <f7-navbar>
+        <div class="left">
+          <a class="link icon-only" href="#" {{action 'panelLeft'}}>
+            <i class="icon icon-bars"></i>
+          </a>
         </div>
-      </div>
-      <!-- Page, "data-page" contains page name -->
-      <div data-page="index" class="page">
-        <!-- Scrollable page content -->
-        <div class="page-content">
-          <div class="content-block-title">Welcome To My Awesome App</div>
-          <!-- Link to another page -->
-          <a href="about.html">About app</a>
+        <div class="center sliding">Awesome App</div>
+        <div class="right">
+          <a class="link" href="#" {{action 'toggleSortable'}}>
+            {{#if sortable}}
+              Done
+            {{else}}
+              Sort
+            {{/if}}
+          </a>
+        </div>
+      </f7-navbar>
+      <f7-search-bar searchIn=".page .item-title"></f7-search-bar>
+      <!-- Scrollable page content -->
+      <div class="page-content">
+        <div class="content-block-title">Welcome To My Awesome App</div>
+
+        <div class="list-block list-block-search searchbar-found">
+          <ul>
+            {{#each items as |item|}}
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">{{item}}</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
       <!-- Bottom Toolbar-->
