@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   classNameBindings: [':page', 'navbar:navbar-through', 'toolbar:toolbar-through'],
   navbar: undefined,
   toolbar: undefined,
-  searchbar: undefined,
 
   feature(name, selector) {
     if (this.get(name) === undefined) {
@@ -22,11 +21,6 @@ export default Ember.Component.extend({
       this.feature('toolbar', '.toolbar');
       this.feature('searchBar', '.searchbar');
     }, 0);
-  },
+  }
 
-  initSearchBar: Ember.observer('searchBar', function(){
-    if (this.get('searchBar')) {
-      this.get('f7').initSearchbar(this.$());
-    }
-  })
 });

@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   setupController(controller) {
     controller.setProperties({
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item)=>{
+      items: Ember.A([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item)=>{
         return `Item ${item}`;
-      })
+      }))
     });
   },
 
@@ -18,13 +18,21 @@ export default Ember.Route.extend({
     },
 
     populateData(deferred) {
-      let items = Ember.A(this.get('controller.items'));
+      let items = this.get('controller.items');
       Ember.run.later(function(){
         items.addObjects([21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32].map((item)=>{
                             return `Item ${item}`;
                           }));
         deferred.resolve();
       }, 1000);
+    },
+
+    itemClicked(item) {
+      this.get('f7').alert(`Clicked ${item}`);
+    },
+
+    deleteItem(item) {
+      this.get('controller.items').removeObject(item);
     }
   }
 });

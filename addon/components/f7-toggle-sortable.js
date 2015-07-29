@@ -8,15 +8,23 @@ export default Ember.Component.extend({
     return this.get('sortable') ? 'Done' : 'Sort';
   }),
 
-  click() {
-    this.toggleProperty('sortable');
+  didInsertElement() {
+    this.get('f7').initSortable();
   },
 
   observeSortable: Ember.observer('sortable', function(){
     if (this.get('sortable')) {
-      this.get('f7').sortableOpen('.sortable');
+      Ember.run.later(()=>{
+        this.get('f7').sortableOpen('.sortable');
+      }, 10)
     } else {
       this.get('f7').sortableClose('.sortable');
     }
-  })
+  }),
+
+  actions: {
+    toggleSort() {
+      this.toggleProperty('sortable');
+    }
+  }
 });

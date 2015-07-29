@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: [':page-content', 'pullToRefresh:pull-to-refresh-content', 'infiniteScroll:infinite-scroll'],
   infiniteScroll: Ember.computed.notEmpty('attrs.onInfiniteScroll'),
   pullToRefresh: Ember.computed.notEmpty('attrs.onPullToRefresh'),
+  loading: false,
 
   setupPullToRefresh: Ember.on('didInsertElement', function(){
     if (this.get('pullToRefresh')) {
@@ -28,20 +29,29 @@ export default Ember.Component.extend({
       this.get('f7').attachInfiniteScroll(this.$());
       
       this.$().on('infinite', ()=>{
-        if (this.get('loading')) return;
+        if (this.get('loading')) {
+          return;
+        }
 
-        this.$().find('.infinite-scroll-preloader').show();
         this.set('loading', true);
 
         const deferred = Ember.RSVP.defer();
         deferred.promise.finally(()=>{
           this.set('loading', false);
-          this.$().find('.infinite-scroll-preloader').hide();
         });
         this.sendAction('onInfiniteScroll', deferred);
       });
     } else {
+      this.set('loading', false);
       this.$().off('infinite');
+    }
+  }),
+
+  observeLoading: Ember.observer('loading', function(){
+    if (this.get('loading')) {
+      this.$().find('.infinite-scroll-preloader').show();
+    } else {
+      this.$().find('.infinite-scroll-preloader').hide();
     }
   })
 });

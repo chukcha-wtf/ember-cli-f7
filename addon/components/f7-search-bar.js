@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   query: '',
 
   didInsertElement(){
+
     const searchList = Ember.$(this.get('searchList'));
 
     if (searchList.length < 1) {
@@ -22,8 +23,8 @@ export default Ember.Component.extend({
 
     }
 
-    this.get('f7').initSearchbar(this.$('.searchbar'));
     this.addOverlay();
+    this.get('f7').initSearchbar(this.$());
   },
 
   onQueryChanges: Ember.observer('query', function(){
