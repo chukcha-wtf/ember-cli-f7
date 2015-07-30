@@ -4,18 +4,14 @@ import layout from '../templates/components/f7-search-bar';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':searchbar-holder'],
-  searchList: '.list-block-search',
-  searchIn: '.item-title',
-  placeholder: 'Search',
-  cancelText: 'cancel',
   query: '',
 
   didInsertElement(){
 
-    const searchList = Ember.$(this.get('searchList'));
+    const searchList = Ember.$(this.get('attrs.searchList'));
 
     if (searchList.length < 1) {
-      throw new Error('There is no search list available within the searchbar component');
+      throw new Error('There is no search list available');
     }
 
     if (searchList.length > 1) {

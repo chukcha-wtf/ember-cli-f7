@@ -3,7 +3,7 @@ import layout from '../templates/components/f7-page-container';
 
 export default Ember.Component.extend({
   layout: layout,
-  classNameBindings: [':page', 'navbar:navbar-through', 'toolbar:toolbar-through'],
+  classNameBindings: [':page', 'navbar:navbar-fixed', 'toolbar:toolbar-fixed'],
   navbar: undefined,
   toolbar: undefined,
 
@@ -19,7 +19,6 @@ export default Ember.Component.extend({
     Ember.run.later(()=>{
       this.feature('navbar', '.navbar');
       this.feature('toolbar', '.toolbar');
-      this.feature('searchBar', '.searchbar');
     }, 0);
   }
 
