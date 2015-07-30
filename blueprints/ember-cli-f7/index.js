@@ -1,7 +1,7 @@
 module.exports = {
-  description: ''
+  normalizeEntityName: function() {},
 
-  afterInstall: function(options) {
+  afterInstall: function(/* options */) {
     return this.addBowerPackageToProject('framework7');
   }
 };
