@@ -27,6 +27,7 @@ export default Ember.Component.extend({
   setupInfiniteScroll: Ember.on('didInsertElement', function(){
     if (this.get('infiniteScroll')) {
       this.get('f7').attachInfiniteScroll(this.$());
+      this.$().find('.infinite-scroll-preloader').hide();
       
       this.$().on('infinite', ()=>{
         if (this.get('loading')) {

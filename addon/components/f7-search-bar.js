@@ -4,10 +4,18 @@ import layout from '../templates/components/f7-search-bar';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':searchbar-holder'],
+  searchList: '.list-block-search',
+  placeholder: 'Searching',
+  searchIn: ".item-title", 
+  cancelText: "done",
+  ignore: '.searchbar-ignore',
+  removeDiacritics: false,
+  hideDividers: true,
+  hideGroups: true,
+
   query: '',
 
   didInsertElement(){
-
     const searchList = Ember.$(this.get('attrs.searchList'));
 
     if (searchList.length < 1) {
