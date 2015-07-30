@@ -33,6 +33,10 @@ export default Ember.Route.extend({
 
     deleteItem(item) {
       this.get('controller.items').removeObject(item);
+    },
+
+    sortItems(item) {
+      // Custom logic to handle data sorting
     }
   }
 });

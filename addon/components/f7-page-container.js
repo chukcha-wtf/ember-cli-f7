@@ -3,7 +3,7 @@ import layout from '../templates/components/f7-page-container';
 
 export default Ember.Component.extend({
   layout: layout,
-  classNameBindings: [':page', 'navbar:navbar-fixed', 'toolbar:toolbar-fixed'],
+  classNameBindings: [':page', 'navbar:navbar-through', 'toolbar:toolbar-through'],
   navbar: undefined,
   toolbar: undefined,
 
