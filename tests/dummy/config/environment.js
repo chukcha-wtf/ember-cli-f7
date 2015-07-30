@@ -8,9 +8,6 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        'ember-htmlbars-attribute-syntax': true,
-        'ember-htmlbars-inline-if-helper': true,
-        'ember-htmlbars-component-generation': true
       }
     },
 
@@ -20,13 +17,7 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self'",
-      'font-src': "'self'",
-      'connect-src': "'self'",
       'img-src': "'self' data:",
-      'style-src': "'self'",
-      'media-src': "'self'"
     }
 
   };

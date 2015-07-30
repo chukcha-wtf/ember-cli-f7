@@ -11,53 +11,20 @@
   <!-- Your main view, should have "view-main" class -->
   <div class="view view-main">
     <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-    <f7-page-container>
+    {{#f7-page-container}}
       <!-- Top Navbar-->
-      <f7-navbar>
+      {{#f7-navbar}}
         <div class="left">
-          <f7-toggle-panel direction="left"></f7-toggle-panel>
+          {{f7-toggle-panel direction="left"}}
         </div>
         <div class="center sliding">Awesome App</div>
         <div class="right">
-          <f7-toggle-sortable></f7-toggle-sortable>
+          {{f7-toggle-sortable}}
         </div>
-      </f7-navbar>
-      <f7-search-bar searchIn=".page .item-title"></f7-search-bar>
-      <!-- Scrollable page content -->
-      <f7-page-content onPullToRefresh="refresh" onInfiniteScroll="populateData">
-        <div class="content-block-title">Welcome To My Awesome App</div>
+      {{/f7-navbar}}
+      
+      {{outlet}}
 
-        <div class="list-block list-block-search searchbar-found sortable">
-          <ul>
-            {{#each items as |item|}}
-              {{#f7-swipeout}}
-                <div class="swipeout-content">
-                  <a href="#" class="item-link item-content" {{action 'itemClicked' item}}>
-                    <div class="item-inner">
-                      <div class="item-title">{{item}}</div>
-                    </div>
-                  </a>
-                </div>
-                <!-- Swipeout actions left -->
-                <div class="swipeout-actions-left">
-                  <!-- Swipeout actions links/buttons -->
-                  <a href="#">Action 1</a>
-                  <a href="#">Action 2</a>
-                </div>
-                <!-- Swipeout actions right -->
-                <div class="swipeout-actions-right">
-                  <!-- Swipeout actions links/buttons -->
-                  <a href="#">Action 1</a>
-                  <a href="#" class="swipeout-delete swipeout-overswipe" {{action 'deleteItem' item on='click'}}>Delete</a>
-                </div>
-                <!-- Sortable handler element -->
-                <div class="sortable-handler"></div>
-              {{/f7-swipeout}}
-            {{/each}}
-          </ul>
-        </div>
-      </f7-page-content>
-      <!-- Bottom Toolbar-->
       <div class="toolbar">
         <div class="toolbar-inner">
           <!-- Toolbar links -->
@@ -65,6 +32,6 @@
           <a href="#" class="link">Link 2</a>
         </div>
       </div>
-    </f7-page-container>
+    {{/f7-page-container}}
   </div>
 </div>

@@ -1,0 +1,39 @@
+{{f7-search-bar searchIn=".page .item-title" searchList='.list-block-search' placeholder="Search" cancelText="Done"}}
+<!-- Scrollable page content -->
+{{#f7-page-content onPullToRefresh="refresh" onInfiniteScroll="populateData"}}
+  <div class="content-block-title">Welcome To My Awesome App</div>
+  <div class="searchbar-not-found">
+    <div class="content-block">
+      Nothings found, mylord.
+    </div>
+  </div>
+  <div class="list-block list-block-search searchbar-found sortable">
+    <ul>
+      {{#each items as |item|}}
+        {{#f7-swipeout}}
+          <div class="swipeout-content">
+            <a href="#" class="item-link item-content" {{action 'itemClicked' item}}>
+              <div class="item-inner">
+                <div class="item-title">{{item}}</div>
+              </div>
+            </a>
+          </div>
+          <!-- Swipeout actions left -->
+          <div class="swipeout-actions-left">
+            <!-- Swipeout actions links/buttons -->
+            <a href="#">Action 1</a>
+            <a href="#">Action 2</a>
+          </div>
+          <!-- Swipeout actions right -->
+          <div class="swipeout-actions-right">
+            <!-- Swipeout actions links/buttons -->
+            <a href="#">Action 1</a>
+            <a href="#" class="swipeout-delete swipeout-overswipe" {{action 'deleteItem' item on='click'}} >Delete</a>
+          </div>
+          <!-- Sortable handler element -->
+          <div class="sortable-handler"></div>
+        {{/f7-swipeout}}
+      {{/each}}
+    </ul>
+  </div>
+{{/f7-page-content}}
