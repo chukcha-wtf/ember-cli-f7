@@ -48,6 +48,28 @@ export default Ember.Component.extend({
     }
   }),
 
+  setupVirtualList: Ember.on('didInsertElement', function(){
+    const container = this.get('virtualListContainer');
+
+    if (container && this.$(container)) {
+      if (this.$(container).length > 1) {
+        throw new Error("You're trying to initialize more than 1 virtual list")
+      }
+
+      if (this.$(container).length < 1) {
+        throw new Error(`Please specify a container '${container}' for virtual list`);
+      }
+
+      this.get('f7').virtualList(container, this.get('virtualListConfig') || {});
+    }
+  }),
+
+  observeVirtualListItems: Ember.observer('virtualListConfig.items', function(){
+    if (this.get('virtualListConfig.items')) {
+      this.setupVirtualList();
+    }
+  }),
+
   observeLoading: Ember.observer('loading', function(){
     if (this.get('loading')) {
       this.$().find('.infinite-scroll-preloader').show();
