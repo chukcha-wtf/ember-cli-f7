@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import itemContent from '../helpers/item-content'
 
 export default Ember.Route.extend({  
   setupController(controller) {
@@ -14,20 +15,15 @@ export default Ember.Route.extend({
                   }));
 
     controller.setProperties({
+      virtualList: null,
       virtualListConfig: {
         items: items,
         renderItem: (index, item) => {
-          return '<li class="item-content">' +
-                    '<div class="item-inner">' +
-                      `<div class="item-title">${item}</div>` +
-                    '</div>' +
-                  '</li>';
+          return itemContent.render(item);
         },
         rowsBefore: 5,
         rowsAfter: 5
       }
     });
-
-
   }
 });

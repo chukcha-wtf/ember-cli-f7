@@ -1,5 +1,9 @@
-{{#f7-page-content virtualListContainer=".virtual-list" virtualListConfig=virtualListConfig}}
+{{#f7-page-content virtualListContainer=".virtual-list" virtualListConfig=virtualListConfig virtualList=(mut virtualList)}}
   <div class="content-block-title">Here's a section with virtual list</div>
+  <p class="buttons-row">
+    <a href="#" class="button button-round" {{action 'filterList'}}>Filter List</a>
+    <a href="#" class="button button-round" {{action 'resetFilter'}}>Reset Filter</a>
+  </p>
   <div class="list-block virtual-list">
   </div>
 {{/f7-page-content}}
