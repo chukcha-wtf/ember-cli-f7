@@ -48,6 +48,21 @@ export default Ember.Component.extend({
     }
   }),
 
+  listenTransitionsEnd: Ember.on('didInsertElement', function(){
+    const el = document.getElementsByClassName('liquid-container');
+    Ember.$.Velocity(el, 'scroll', ()=>{
+      if (this.get('virtualList')) {
+        this.get('f7').showIndicator();
+        Ember.run.later(()=>{
+          this.set('virtualList', this.get('f7').reinitVirtualList(this.get('virtualListContainer')));
+          this.get('f7').hideIndicator();
+        }, 300);
+      } else {
+        this.setupVirtualList();
+      }
+    });
+  }),
+
   setupVirtualList: Ember.on('didInsertElement', function(){
     const container = this.get('virtualListContainer');
 
@@ -60,9 +75,7 @@ export default Ember.Component.extend({
         throw new Error(`Please specify a container '${container}' for virtual list`);
       }
 
-      Ember.run.later(()=>{
-        this.set('virtualList', this.get('f7').virtualList(container, this.get('virtualListConfig') || {}));
-      }, 0);
+      this.set('virtualList', this.get('f7').virtualList(container, this.get('virtualListConfig') || {}));
     }
   }),
 

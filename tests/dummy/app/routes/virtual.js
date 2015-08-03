@@ -25,5 +25,18 @@ export default Ember.Route.extend({
         rowsAfter: 5
       }
     });
+  },
+
+  actions: {
+    willTransition() {
+      this.get('controller.virtualList').destroy();
+    }
+  },
+
+  renderTemplate(){
+    this.render();
+    this.render('navbar-virtual', {
+      outlet: 'navbar'
+    });
   }
 });

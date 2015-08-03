@@ -10,28 +10,22 @@
 <div class="views">
   <!-- Your main view, should have "view-main" class -->
   <div class="view view-main">
-    <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-    {{#f7-page-container}}
-      <!-- Top Navbar-->
-      {{#f7-navbar}}
-        <div class="left">
-          {{f7-toggle-panel direction="left"}}
-        </div>
-        <div class="center sliding">Awesome App</div>
-        <div class="right">
-          {{f7-toggle-sortable itemSelector="li.swipeout" action="sortItems" sortableOpen="Sort" sortableClose="Done"}}
-        </div>
-      {{/f7-navbar}}
-      
-      {{outlet}}
+    <div class="pages">
+      <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+      {{#f7-page-container}}
+        {{#f7-navbar currentPath=currentPath}}
+          {{liquid-outlet 'navbar'}}
+        {{/f7-navbar}}
 
-      <div class="toolbar">
-        <div class="toolbar-inner">
-          <!-- Toolbar links -->
-          {{#link-to 'index' class="link"}}Index{{/link-to}}
-          {{#link-to 'virtual' class="link"}}Virtual{{/link-to}}
-        </div>
+        {{liquid-outlet}}
+      {{/f7-page-container}}
+    </div>
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <!-- Toolbar links -->
+        {{#link-to 'index' class="link"}}Index{{/link-to}}
+        {{#link-to 'virtual' class="link"}}Virtual{{/link-to}}
       </div>
-    {{/f7-page-container}}
+    </div>
   </div>
 </div>

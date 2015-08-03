@@ -9,11 +9,17 @@ export default Ember.Component.extend({
     this.animate();
   },
 
+  observeController: Ember.observer('currentPath', function(){
+    this.animate();
+  }),
+
   animate(){
-    this.$('.center').css('opacity', 0);
-    Ember.run.later(()=>{
-      this.get('f7').sizeNavbars();
-      this.$('.center').css('opacity', 1);
-    }, 0);
+    Ember.run.schedule('afterRender', ()=>{
+      this.$('.center').css('opacity', 0);
+      Ember.run.later(()=>{
+        this.get('f7').sizeNavbars();
+        this.$('.center').css('opacity', 1);
+      }, 0);
+    });
   }
 });

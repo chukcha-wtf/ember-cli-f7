@@ -34,5 +34,12 @@ export default Ember.Route.extend({
     deleteItem(item) {
       this.get('controller.items').removeObject(item);
     }
+  },
+
+  renderTemplate(){
+    this.render();
+    this.render('navbar-index', {
+      outlet: 'navbar'
+    });
   }
 });
