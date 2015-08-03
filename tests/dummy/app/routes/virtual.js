@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import itemContent from '../helpers/item-content'
+import itemContent from '../helpers/item-content';
 
 export default Ember.Route.extend({  
   setupController(controller) {

@@ -10,4 +10,4 @@ export default Ember.Controller.extend({
       this.get('virtualList').resetFilter();
     }
   }
-})
+});

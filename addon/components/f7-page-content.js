@@ -53,14 +53,16 @@ export default Ember.Component.extend({
 
     if (container && this.$(container)) {
       if (this.$(container).length > 1) {
-        throw new Error("You're trying to initialize more than 1 virtual list")
+        throw new Error("You're trying to initialize more than 1 virtual list");
       }
 
       if (this.$(container).length < 1) {
         throw new Error(`Please specify a container '${container}' for virtual list`);
       }
 
-      this.set('virtualList', this.get('f7').virtualList(container, this.get('virtualListConfig') || {}));
+      Ember.run.later(()=>{
+        this.set('virtualList', this.get('f7').virtualList(container, this.get('virtualListConfig') || {}));
+      }, 0);
     }
   }),
 

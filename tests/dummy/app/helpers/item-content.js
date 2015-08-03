@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 export default {
   render(params/*, hash*/) {
     return '<li class="item-content">' +
