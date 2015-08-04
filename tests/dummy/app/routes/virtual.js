@@ -21,8 +21,8 @@ export default Ember.Route.extend({
         renderItem: (index, item) => {
           return itemContent.render(item);
         },
-        rowsBefore: 5,
-        rowsAfter: 5
+        rowsBefore: 25,
+        rowsAfter: 25
       }
     });
   },

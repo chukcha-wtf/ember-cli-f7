@@ -75,7 +75,13 @@ export default Ember.Component.extend({
         throw new Error(`Please specify a container '${container}' for virtual list`);
       }
 
-      this.set('virtualList', this.get('f7').virtualList(container, this.get('virtualListConfig') || {}));
+      this.get('f7').virtualList(container, this.get('virtualListConfig') || {});
+
+      Ember.run.once(()=>{
+        if (!this.get('virtualList')) {
+          this.set('virtualList', this.$(container)[0].f7VirtualList);
+        }
+      });
     }
   }),
 
