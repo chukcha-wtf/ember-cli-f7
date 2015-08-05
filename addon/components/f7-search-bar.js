@@ -16,7 +16,7 @@ export default Ember.Component.extend({
   query: '',
 
   didInsertElement(){
-    const searchList = Ember.$(this.get('attrs.searchList'));
+    const searchList = Ember.$(this.get('searchList'));
 
     if (searchList.length < 1) {
       throw new Error('There is no search list available');
@@ -24,11 +24,10 @@ export default Ember.Component.extend({
 
     if (searchList.length > 1) {
       throw new Error('There is more than one search list available within the searchbar component');
-
     }
 
     this.addOverlay();
-    this.get('f7').initSearchbar(this.$());
+    this.get('f7').initSearchbar('.searchbar');
   },
 
   onQueryChanges: Ember.observer('query', function(){

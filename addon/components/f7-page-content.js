@@ -27,7 +27,12 @@ export default Ember.Component.extend({
   setupInfiniteScroll: Ember.on('didInsertElement', function(){
     if (this.get('infiniteScroll')) {
       this.get('f7').attachInfiniteScroll(this.$());
-      this.$().find('.infinite-scroll-preloader').hide();
+
+      if (this.get('f7.materialTheme')) {
+        this.$().find('.infinite-scroll-preloader').hide();
+      } else {
+        this.get('f7').hideIndicator();
+      }
       
       this.$().on('infinite', ()=>{
         if (this.get('loading')) {
@@ -37,7 +42,7 @@ export default Ember.Component.extend({
         this.set('loading', true);
 
         const deferred = Ember.RSVP.defer();
-        deferred.promise.finally(()=>{
+        deferred.promise.finally((detach)=>{
           this.set('loading', false);
         });
         this.sendAction('onInfiniteScroll', deferred);
@@ -92,10 +97,18 @@ export default Ember.Component.extend({
   }),
 
   observeLoading: Ember.observer('loading', function(){
-    if (this.get('loading')) {
-      this.$().find('.infinite-scroll-preloader').show();
+    if (this.get('f7.materialTheme')) {
+      if (this.get('loading')) {
+        this.get('f7').showIndicator();
+      } else {
+        this.get('f7').hideIndicator();
+      }
     } else {
-      this.$().find('.infinite-scroll-preloader').hide();
+      if (this.get('loading')) {
+        this.$().find('.infinite-scroll-preloader').show();
+      } else {
+        this.$().find('.infinite-scroll-preloader').hide();
+      }
     }
   })
 });

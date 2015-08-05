@@ -2,5 +2,8 @@
 <form data-search-list={{searchList}} data-search-in={{searchIn}} data-custom-search={{customSearch}} data-ignore={{ignore}} data-hide-groups={{hideGroups}} data-hide-dividers={{hideDividers}} class="searchbar searchbar-init">
   <div class="searchbar-input">
     {{input type='search' value=query placeholder=placeholder}}<a href="#" class="searchbar-clear"></a>
-  </div><a href="#" class="searchbar-cancel">{{cancelText}}</a>
+  </div>
+  {{#if f7.iosTheme}}
+    <a href="#" class="searchbar-cancel">{{cancelText}}</a>
+  {{/if}}
 </form>

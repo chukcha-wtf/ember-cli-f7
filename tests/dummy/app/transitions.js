@@ -9,5 +9,5 @@ export default function(){
     this.childOf(".navbar"),
     this.toValue(true),
     this.use('crossFade', {duration: 300})
-  )
+  );
 }

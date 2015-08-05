@@ -9,9 +9,28 @@ f7.init = function(){
   return this._super();
 };
 
+
 let preloaderTimeout = null;
 
 export default Ember.Service.extend(f7, {
+  currentDevice: Framework7.prototype.device.os,
+
+  isAndroid: Ember.computed.equal('currentDevice', 'android'),
+  isIOS: Ember.computed.equal('currentDevice', 'ios'),
+  materialTheme: Ember.computed('isAndroid', function(){
+    return this.config.framework7 && this.config.framework7.theme === 'material';
+  }),
+  iosTheme: Ember.computed('isIOS', function(){
+    return this.config.framework7 && this.config.framework7.theme === 'ios';
+  }),
+
+  init() {
+    f7.params.material = this.config.framework7 && this.config.framework7.theme === 'material';
+    f7.f7Init();
+
+    return this._super();
+  },
+
   showPreloader(options) {
     options = options || {};
 
@@ -32,10 +51,5 @@ export default Ember.Service.extend(f7, {
     } else {
       f7.hidePreloader();
     }
-  },
-
-  initSwipePanels(panels){
-    f7.params.swipePanel = panels;
-    f7.f7Init();
   }
 });

@@ -14,12 +14,14 @@ export default Ember.Component.extend({
   }),
 
   animate(){
-    Ember.run.schedule('afterRender', ()=>{
-      this.$('.center').css('opacity', 0);
-      Ember.run.later(()=>{
-        this.get('f7').sizeNavbars();
-        this.$('.center').css('opacity', 1);
-      }, 0);
-    });
+    if (this.get('f7.iosTheme')) {
+      Ember.run.schedule('afterRender', ()=>{
+        this.$('.center').css('opacity', 0);
+        Ember.run.later(()=>{
+          this.get('f7').sizeNavbars();
+          this.$('.center').css('opacity', 1);
+        }, 0);
+      });
+    }
   }
 });

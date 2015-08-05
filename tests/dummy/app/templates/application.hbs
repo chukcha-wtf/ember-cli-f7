@@ -1,31 +1,39 @@
+{{#if f7.isIOS}}
 <!-- Status bar overlay for full screen mode (PhoneGap) -->
 <div class="statusbar-overlay"></div>
+{{/if}}
 <div class="panel-overlay"></div>
 <div class="panel panel-left panel-reveal">
   <div class="content-block">
     <p>Left Panel content here</p>
+    <p>Material theme: {{f7.materialTheme}}</p>
+    <p>iOs theme: {{f7.iosTheme}}</p>
+    <p>Android: {{f7.isAndroid}}</p>
+    <p>iOs: {{f7.isIOS}}</p>
   </div>
 </div>
 <!-- Views -->
 <div class="views">
   <!-- Your main view, should have "view-main" class -->
   <div class="view view-main">
+    
+    {{#if f7.iosTheme}}
+      {{partial 'navbar'}}
+    {{/if}}
+    
     <div class="pages">
       <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
       {{#f7-page-container}}
-        {{#f7-navbar currentPath=currentPath}}
-          {{liquid-outlet 'navbar'}}
-        {{/f7-navbar}}
+        {{#if f7.materialTheme}}
+          {{partial 'navbar'}}
+        {{/if}}
 
         {{liquid-outlet}}
+
+
       {{/f7-page-container}}
     </div>
-    <div class="toolbar">
-      <div class="toolbar-inner">
-        <!-- Toolbar links -->
-        {{#link-to 'index' class="link"}}Index{{/link-to}}
-        {{#link-to 'virtual' class="link"}}Virtual{{/link-to}}
-      </div>
-    </div>
+
+    {{partial 'toolbar'}}
   </div>
 </div>

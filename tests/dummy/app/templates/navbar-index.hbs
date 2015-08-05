@@ -1,9 +1,17 @@
 <div class="navbar-inner">
-  <div class="left">
-    {{f7-toggle-panel direction="left"}}
-  </div>
+  {{#if f7.iosTheme}}
+    <div class="left">
+      {{f7-toggle-panel direction="left"}}
+    </div>
+  {{/if}}
   <div class="center sliding">Awesome App</div>
-  <div class="right">
-    {{f7-toggle-sortable itemSelector="li.swipeout" action="sortItems" sortableOpen="Sort" sortableClose="Done"}}
-  </div>
+  {{#if f7.iosTheme}}
+    <div class="right">
+      {{f7-toggle-sortable itemSelector="li.swipeout" action="sortItems" sortableOpen="Sort" sortableClose="Done"}}
+    </div>
+  {{else}}
+    <div class="right">
+      {{f7-toggle-panel direction="left"}}
+    </div>
+  {{/if}}
 </div>
