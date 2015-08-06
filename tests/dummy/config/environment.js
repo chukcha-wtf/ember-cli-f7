@@ -22,7 +22,7 @@ module.exports = function(environment) {
     },
 
     framework7: {
-      theme: 'material' // supported themes 'ios' and 'material'
+      theme: 'ios' // supported themes 'ios' and 'material'
     }
 
   };

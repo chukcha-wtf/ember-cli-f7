@@ -13,7 +13,7 @@ export default Ember.Mixin.create({
   },
 
   actions: {
-    loading(transition, route) {
+    loading() {
       this.get('f7').showIndicator();
 
       this.router.one('didTransition', ()=>{

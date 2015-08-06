@@ -42,7 +42,7 @@ export default Ember.Component.extend({
         this.set('loading', true);
 
         const deferred = Ember.RSVP.defer();
-        deferred.promise.finally((detach)=>{
+        deferred.promise.finally(()=>{
           this.set('loading', false);
         });
         this.sendAction('onInfiniteScroll', deferred);
