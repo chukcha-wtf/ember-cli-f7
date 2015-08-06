@@ -18,7 +18,7 @@ export default Ember.Route.extend(F7Route, {
     return new Ember.RSVP.Promise((resolve)=>{
       Ember.run.later(()=>{
         resolve(items);
-      }, 1000);
+      }, 500);
     });
   },
 

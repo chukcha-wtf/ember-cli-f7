@@ -14,7 +14,7 @@
       {{#each items as |item|}}
         {{#f7-swipeout}}
           <div class="swipeout-content">
-            <a href="#" class="item-link item-content" {{action 'itemClicked' item}}>
+            <a href="#" class="item-link item-content" {{action 'goTo' item}}>
               <div class="item-inner">
                 <div class="item-title">{{item}}</div>
               </div>

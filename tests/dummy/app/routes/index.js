@@ -9,8 +9,8 @@ export default Ember.Route.extend(F7Route, {
 
     return new Ember.RSVP.Promise((resolve)=>{
       Ember.run.later(()=>{
-        resolve(items)
-      }, 1000);
+        resolve(items);
+      }, 400);
     });
   },
 
@@ -44,6 +44,11 @@ export default Ember.Route.extend(F7Route, {
 
     deleteItem(item) {
       this.get('controller.items').removeObject(item);
+    },
+
+    goTo(item) {
+      const id = parseInt(item.replace("Item ", ""));
+      this.transitionTo('items.show', id);
     }
   },
 });
