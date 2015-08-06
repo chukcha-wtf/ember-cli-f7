@@ -23,13 +23,17 @@ body > .ember-view {
 }
 
 .navbar-fixed .page  .searchbar-holder, .navbar-through .page  .searchbar-holder, .navbar-fixed  .searchbar-holder, .navbar-through  .searchbar-holder {
-    top: 44px;
+  top: 44px;
 }
 
 .navbar-fixed .page  .searchbar-holder ~ .page-content, .navbar-through .page  .searchbar-holder ~ .page-content, .navbar-fixed  .searchbar-holder ~ .page-content, .navbar-through  .searchbar-holder ~ .page-content {
-    padding-top: 88px;
+  padding-top: 88px;
 }
 
 .page-content {
   display: block;
+}
+
+.page .navbar, .view .navbar, .views .navbar, .page .toolbar, .view .toolbar, .views .toolbar {
+    position: absolute;
 }

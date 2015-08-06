@@ -1,8 +1,9 @@
 import Ember from 'ember';
+import F7Route from 'ember-cli-f7/mixins/f7-route';
 import itemContent from '../helpers/item-content';
 
-export default Ember.Route.extend({  
-  setupController(controller) {
+export default Ember.Route.extend(F7Route, {  
+  model() {
     const items = Ember.A([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 
                       18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 
                       33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 
@@ -14,10 +15,18 @@ export default Ember.Route.extend({
                     return `Item ${item}`;
                   }));
 
+    return new Ember.RSVP.Promise((resolve)=>{
+      Ember.run.later(()=>{
+        resolve(items);
+      }, 1000);
+    });
+  },
+
+  setupController(controller, model) {
     controller.setProperties({
       virtualList: null,
       virtualListConfig: {
-        items: items,
+        items: model,
         renderItem: (index, item) => {
           return itemContent.render(item);
         },
@@ -31,12 +40,5 @@ export default Ember.Route.extend({
     willTransition() {
       this.get('controller.virtualList').destroy();
     }
-  },
-
-  renderTemplate(){
-    this.render();
-    this.render('navbar-virtual', {
-      outlet: 'navbar'
-    });
   }
 });

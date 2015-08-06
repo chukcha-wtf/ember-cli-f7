@@ -3,7 +3,7 @@
 <div class="statusbar-overlay"></div>
 {{/if}}
 <div class="panel-overlay"></div>
-<div class="panel panel-left panel-reveal">
+<div class="panel panel-left {{if f7.materialTheme 'panel-cover' 'panel-reveal'}}">
   <div class="content-block">
     <p>Left Panel content here</p>
     <p>Material theme: {{f7.materialTheme}}</p>
@@ -17,19 +17,13 @@
   <!-- Your main view, should have "view-main" class -->
   <div class="view view-main">
     
-    {{#if f7.iosTheme}}
-      {{partial 'navbar'}}
-    {{/if}}
+    {{partial 'ios-navbar'}}
     
     <div class="pages">
       <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
       {{#f7-page-container}}
-        {{#if f7.materialTheme}}
-          {{partial 'navbar'}}
-        {{/if}}
 
         {{liquid-outlet}}
-
 
       {{/f7-page-container}}
     </div>

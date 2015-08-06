@@ -1,11 +1,22 @@
 import Ember from 'ember';
+import F7Route from 'ember-cli-f7/mixins/f7-route';
 
-export default Ember.Route.extend({
-  setupController(controller) {
+export default Ember.Route.extend(F7Route, {
+  model() {
+    const items = Ember.A([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item)=>{
+                    return `Item ${item}`;
+                  }));
+
+    return new Ember.RSVP.Promise((resolve)=>{
+      Ember.run.later(()=>{
+        resolve(items)
+      }, 1000);
+    });
+  },
+
+  setupController(controller, model) {
     controller.setProperties({
-      items: Ember.A([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item)=>{
-        return `Item ${item}`;
-      }))
+      items: model
     });
   },
 
@@ -35,11 +46,4 @@ export default Ember.Route.extend({
       this.get('controller.items').removeObject(item);
     }
   },
-
-  renderTemplate(){
-    this.render();
-    this.render('navbar-index', {
-      outlet: 'navbar'
-    });
-  }
 });
