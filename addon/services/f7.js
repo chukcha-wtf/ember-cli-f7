@@ -51,5 +51,10 @@ export default Ember.Service.extend(f7, {
     } else {
       f7.hidePreloader();
     }
+  },
+
+  initSwipePanels(panels) {
+    f7.params.swipePanel = panels;
+    f7.f7Init();
   }
 });
