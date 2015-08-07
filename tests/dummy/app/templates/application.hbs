@@ -1,9 +1,4 @@
-{{#if f7.isIOS}}
-<!-- Status bar overlay for full screen mode (PhoneGap) -->
-<div class="statusbar-overlay"></div>
-{{/if}}
-<div class="panel-overlay"></div>
-<div class="panel panel-left {{if f7.materialTheme 'panel-cover' 'panel-reveal'}}">
+{{#f7-panel position="left" display="cover"}}
   <div class="content-block">
     <p>Left Panel content here</p>
     <p>Material theme: {{f7.materialTheme}}</p>
@@ -11,7 +6,7 @@
     <p>Android: {{f7.isAndroid}}</p>
     <p>iOs: {{f7.isIOS}}</p>
   </div>
-</div>
+{{/f7-panel}}
 <!-- Views -->
 <div class="views">
   <!-- Your main view, should have "view-main" class -->

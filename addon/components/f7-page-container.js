@@ -32,6 +32,14 @@ export default Ember.Component.extend({
       this.feature('navbar', '.navbar');
       this.feature('toolbar', '.toolbar');
     }, 0);
+
+    if (this.get('f7.iosTheme')) {
+      this.addStatusOverlay();
+    }
+  },
+
+  addStatusOverlay() {
+    Ember.$('body').prepend('<div class="statusbar-overlay"></div>');
   }
 
 });
