@@ -27,6 +27,21 @@ module.exports = function(environment) {
 };
 ```
 
+## Components Included
+- `{{[f7-views](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-views.js)}}`
+- `{{[f7-view](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-view.js)}}`
+- `{{[f7-navbar](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-navbar.js)}}`
+- `{{[f7-page-container](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-page-container.js)}}`
+- `{{[f7-page-content](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-page-content.js)}}`
+- `{{[f7-panel](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-panel.js)}}`
+- `{{[f7-search-bar](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-search-bar.js)}}`
+- `{{[f7-swipeout](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-swipeout.js)}}`
+- `{{[f7-toggle-panel](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-toggle-panel.js)}}`
+- `{{[f7-toggle-sortable](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/components/f7-toggle-sortable.js)}}`
+
+## Mixins Included
+- `[f7-route](https://github.com/chukcha-wtf/ember-cli-f7/blob/master/addon/mixins/f7-route.js)`
+
 ## Important!
 You'll need to add `data:` attribute to to your `config/environment.js` file. This will allow svg icons been properly displayed.
 
