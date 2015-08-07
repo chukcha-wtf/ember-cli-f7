@@ -1,28 +1,25 @@
-{{#f7-panel position="left" display="cover"}}
-  <div class="content-block">
-    <p>Right Panel content here</p>
-    <p>Material theme: {{f7.materialTheme}}</p>
-    <p>iOs theme: {{f7.iosTheme}}</p>
-    <p>Android: {{f7.isAndroid}}</p>
-    <p>iOs: {{f7.isIOS}}</p>
-  </div>
-{{/f7-panel}}
 <!-- Views -->
-{{#f7-views viewsCount=3}}
+{{#f7-views viewsCount=2}}
+
   <!-- Example usage of split-view with degradation to panel -->
-{{!--   {{#f7-panel position="left" display="reveal"}}
+  {{#f7-panel position="left" display="cover"}}
+    {{#f7-view name="left"}}
+      {{#f7-page-container}}
+        {{#f7-page-content}}
+          <div class="content-block-title">
+            Navigational Sidebar Left
+          </div>
+          <div class="content-block">
+            <p>Right Panel content here</p>
+            <p>Material theme: {{f7.materialTheme}}</p>
+            <p>iOs theme: {{f7.iosTheme}}</p>
+            <p>Android: {{f7.isAndroid}}</p>
+            <p>iOs: {{f7.isIOS}}</p>
+          </div>
+        {{/f7-page-content}}
+      {{/f7-page-container}}
+    {{/f7-view}}
   {{/f7-panel}}
- --}}
-  
-  {{#f7-view name="left"}}
-    {{#f7-page-container}}
-      {{#f7-page-content}}
-        <div class="content-block-title">
-          Navigational Sidebar Left
-        </div>
-      {{/f7-page-content}}
-    {{/f7-page-container}}
-  {{/f7-view}}
   
   <!-- Your main view, should have "view-main" class -->
   {{#f7-view name="main"}}
@@ -41,15 +38,4 @@
     {{partial 'toolbar'}}
 
   {{/f7-view}}
-
-  {{#f7-view name="right"}}
-    {{#f7-page-container}}
-      {{#f7-page-content}}
-        <div class="content-block-title">
-          Navigational Sidebar Right
-        </div>
-      {{/f7-page-content}}
-    {{/f7-page-container}}
-  {{/f7-view}}
-  
 {{/f7-views}}

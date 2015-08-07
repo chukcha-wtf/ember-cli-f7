@@ -15,15 +15,31 @@ export default Ember.Component.extend({
   },
 
   didRender() {
-    console.log(`Rendered ${this.get('name')}`);
     Ember.run.schedule('actions', () => {
       if (this.get('name') === 'main') {
-        if (this.$().siblings('.view-right').length > 0 && this.$().siblings('.view-left').length > 0) {
+        const viewLeft = this.$().siblings('.view-left').length > 0;
+        const viewRight = this.$().siblings('.view-left').length > 0;
+        
+        // add class for multiple views
+        if (viewLeft && viewRight) {
           this.set('multiViewsClass', 'view-main-with-right-and-left');
-        } else if (this.$().siblings('.view-right').length > 0) {
+        } else if (viewRight) {
           this.set('multiViewsClass', 'view-main-with-right');
-        } else if (this.$().siblings('.view-left').length > 0) {
+        } else if (viewLeft) {
           this.set('multiViewsClass', 'view-main-with-left');
+        }
+
+
+        const degradationViewLeft = this.$().siblings('.panel').find('.view-left').length > 0;
+        const degradationViewRight = this.$().siblings('.panel').find('.view-right').length > 0;
+
+        // add class for multiple views with panel degradation
+        if (degradationViewLeft && degradationViewRight) {
+          this.set('multiViewsClass', 'degradation-view-main-with-right-and-left');
+        } else if (degradationViewRight) {
+          this.set('multiViewsClass', 'degradation-view-main-with-right');
+        } else if (degradationViewLeft) {
+          this.set('multiViewsClass', 'degradation-view-main-with-left');
         }
       }
     });

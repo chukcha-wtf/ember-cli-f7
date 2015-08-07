@@ -3,6 +3,7 @@ import layout from '../templates/components/f7-toggle-panel';
 
 export default Ember.Component.extend({
   layout: layout,
+  classNames: 'toggle-panel',
 
   click() {
     this.get('f7').openPanel(this.get('attrs.direction'));
