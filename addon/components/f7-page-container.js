@@ -4,24 +4,28 @@ import layout from '../templates/components/f7-page-container';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':page', 'navbarClass', 'toolbarClass'],
-  navbar: undefined,
-  toolbar: undefined,
+  navbar: false,
+  toolbar: false,
 
   navbarClass: Ember.computed('navbar', 'f7.materialTheme', function(){
-    if (!Ember.isEmpty(this.get('navbar'))) {
+    if (this.get('navbar')) {
       return this.get('f7.materialTheme') ? 'navbar-fixed' : 'navbar-through';
+    } else {
+      return '';
     }
   }),
 
   toolbarClass: Ember.computed('toolbar', 'f7.materialTheme', function(){
-    if (!Ember.isEmpty(this.get('toolbar'))) {
+    if (this.get('toolbar')) {
       return 'toolbar-through';
+    } else {
+      return '';
     }
   }),
 
   feature(name, selector) {
-    if (this.get(name) === undefined) {
-      this.set(name, Ember.$(selector).length > 0);
+    if (!this.get(name)) {
+      this.set(name, this.$().parents('.view').find(selector).length > 0);
     }
   },
 

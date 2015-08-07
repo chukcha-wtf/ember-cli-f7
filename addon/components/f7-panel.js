@@ -4,11 +4,11 @@ import layout from '../templates/components/f7-panel';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':panel', 'positionClass', 'displayClass'],
-  postion: 'left', //support 'right' and 'left' directions
+  position: 'left', //support 'right' and 'left' directions
   display: 'reveal', //supports 'cover' and 'reveal' values
   
   positionClass: Ember.computed('postion', function(){
-    return `panel-${this.get('postion')}`;
+    return `panel-${this.get('position')}`;
   }),
   displayClass: Ember.computed('display', function(){
     return `panel-${this.get('display')}`;

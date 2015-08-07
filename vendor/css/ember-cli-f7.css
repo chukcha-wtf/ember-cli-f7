@@ -37,3 +37,64 @@ body > .ember-view {
 .page .navbar, .view .navbar, .views .navbar, .page .toolbar, .view .toolbar, .views .toolbar {
     position: absolute;
 }
+
+
+/* Different views support */
+
+/* Two views */
+.views .view-left, .views .view-right {
+  width: 320px;
+}
+
+.views .view-left {
+  float: left;
+  border-right: 1px solid #b2b2b2;
+}
+
+.views .view-right {
+  float: right;
+  border-left: 1px solid #b2b2b2;
+}
+
+.views .view-main-with-left, .views .view-main-with-right {
+  width: -webkit-calc(100% - 321px);
+  width: -moz-calc(100% - 321px);
+  width: -ms-calc(100% - 321px);
+  width: calc(100% - 321px);
+}
+
+.views .view-main-with-right-and-left{
+  width: -webkit-calc(100% - 640px);
+  width: -moz-calc(100% - 640px);
+  width: -ms-calc(100% - 640px);
+  width: calc(100% - 640px);
+  float: left;
+}
+
+.views .view-main-with-right {
+  float: left;
+}
+
+.views .view-main-with-left {
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .views .view-left, .views .view-right {
+    width: 240px;
+  }
+
+  .views .view-main-with-left, .views .view-main-with-right {
+      width: -webkit-calc(100% - 241px);
+      width: -moz-calc(100% - 241px);
+      width: -ms-calc(100% - 241px);
+      width: calc(100% - 241px);
+  }
+
+  .views .view-main-with-right-and-left{
+    width: -webkit-calc(100% - 480px);
+    width: -moz-calc(100% - 480px);
+    width: -ms-calc(100% - 480px);
+    width: calc(100% - 480px);
+  }
+}
