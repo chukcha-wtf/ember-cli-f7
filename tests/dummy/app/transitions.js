@@ -4,7 +4,7 @@ const isMetro = config.framework7 && config.framework7.theme === 'material';
 
 const pageTransitionDirection = isMetro ? 'toUp' : 'toLeft';
 const pageTransitionBack = isMetro ? 'crossFade' : 'toRight';
-const transitionDuration = isMetro ? 200 : 300;
+const transitionDuration = isMetro ? 300 : 300;
 
 const transitionWithReverse = function(route) {
   this.transition(

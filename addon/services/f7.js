@@ -55,6 +55,6 @@ export default Ember.Service.extend(f7, {
 
   initSwipePanels(panels) {
     f7.params.swipePanel = panels;
-    f7.f7Init();
+    f7.initSwipePanels();
   }
 });
