@@ -1,6 +1,10 @@
 /* jshint node: true */
 'use strict';
 
+var fs   = require('fs');
+var path = require('path');
+
+
 module.exports = {
   name: 'ember-cli-f7',
 
@@ -10,6 +14,8 @@ module.exports = {
     app.import('vendor/css/ember-cli-f7.css');
 
     var bowerDirectory = app.bowerDirectory;
+    var imagesPath = bowerDirectory + '/framework7/dist/img';
+    var imgFiles = fs.readdirSync(path.join(imagesPath));
     var config = app.project.config(process.env.EMBER_ENV || 'development')['framework7'];
 
     if (!config) {
@@ -40,6 +46,13 @@ module.exports = {
       production: bowerDirectory + '/framework7/dist/js/framework7.min.js.map', 
       destDir: 'assets'
     });
+
+    imgFiles.forEach(function(file) {
+      app.import(path.join(imagesPath, file), {
+        destDir: '/img'
+      });
+    });
+
   },
 
   isDevelopingAddon: function() {
