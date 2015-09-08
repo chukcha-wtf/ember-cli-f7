@@ -22,7 +22,10 @@ module.exports = function(environment) {
     },
 
     framework7: {
-      theme: 'ios' // supported themes 'ios' and 'material'
+      theme: 'material', // supported themes 'ios' and 'material'
+      params: {
+        fastClicks: true
+      }
     }
 
   };

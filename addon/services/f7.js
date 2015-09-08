@@ -25,7 +25,11 @@ export default Ember.Service.extend(f7, {
   }),
 
   init() {
-    f7.params.material = this.config.framework7 && this.config.framework7.theme === 'material';
+    if (this.config.framework7) {
+      f7.params.material = this.config.framework7.theme === 'material';
+      f7.params = Ember.$.extend({}, f7.params, this.config.framework7.params);
+    }
+
     f7.f7Init();
 
     return this._super();
