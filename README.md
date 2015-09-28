@@ -59,3 +59,13 @@ You'll need to add `data:` attribute to to your `config/environment.js` file. Th
 -  [liquid-fire](http://ef4.github.io/liquid-fire/)
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+# Example Demo
+
+```
+  git clone git@github.com:chukcha-wtf/ember-cli-f7.git
+  cd ember-state-services
+  npm i; bower i
+  ember server
+```
+Then visit the demo app: http://localhost:4200 in your browser
