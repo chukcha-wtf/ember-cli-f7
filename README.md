@@ -64,7 +64,7 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 
 ```
   git clone git@github.com:chukcha-wtf/ember-cli-f7.git
-  cd ember-state-services
+  cd ember-cli-f7
   npm i; bower i
   ember server
 ```
