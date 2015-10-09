@@ -4,6 +4,7 @@ import layout from '../templates/components/f7-page-content';
 export default Ember.Component.extend({
   layout: layout,
   classNameBindings: [':page-content', 'pullToRefresh:pull-to-refresh-content', 'infiniteScroll:infinite-scroll'],
+  attributeBindings: ['data-distance'],
   infiniteScroll: Ember.computed.notEmpty('attrs.onInfiniteScroll'),
   pullToRefresh: Ember.computed.notEmpty('attrs.onPullToRefresh'),
   loading: false,
