@@ -1,5 +1,21 @@
 # Ember-cli-F7 Changelog
 
+### 0.2.7 (Aug 7, 2015)
+- [FIX] loading indicator on infinite scroll
+- [ADD] support for 'data-distance' attribute on infinite scroll
+- [FIX] issue with searchbar component initialization
+
+### 0.2.6 (Sep 8, 2015)
+- [FIX] issue with applying f7 params
+
+### 0.2.5 (Sep 8, 2015)
+- [ADD] ability to set f7 params from environment.js
+
+### 0.2.4 (Aug 18, 2015)
+- [ADD] images importing
+- [FIX] swipeout panels initialization
+- [FIX] README description
+
 ### 0.2.3 (Aug 7, 2015)
 - [ADD] CHANGELOG.md
 - [ADD] support for multiviews layout
