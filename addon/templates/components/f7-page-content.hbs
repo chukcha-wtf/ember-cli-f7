@@ -10,8 +10,10 @@
 {{/if}}
 {{yield}}
 {{#if infiniteScroll}}
-  <div class="infinite-scroll-preloader">
-    <div class="preloader">
+  {{#if loading}}
+    <div class="infinite-scroll-preloader">
+      <div class="preloader">
+      </div>
     </div>
-  </div>
+  {{/if}}
 {{/if}}

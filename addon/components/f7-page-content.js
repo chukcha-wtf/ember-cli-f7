@@ -30,8 +30,6 @@ export default Ember.Component.extend({
       this.get('f7').attachInfiniteScroll(this.$());
 
       if (this.get('f7.materialTheme')) {
-        this.$().find('.infinite-scroll-preloader').hide();
-      } else {
         this.get('f7').hideIndicator();
       }
       
@@ -103,12 +101,6 @@ export default Ember.Component.extend({
         this.get('f7').showIndicator();
       } else {
         this.get('f7').hideIndicator();
-      }
-    } else {
-      if (this.get('loading')) {
-        this.$().find('.infinite-scroll-preloader').show();
-      } else {
-        this.$().find('.infinite-scroll-preloader').hide();
       }
     }
   })
