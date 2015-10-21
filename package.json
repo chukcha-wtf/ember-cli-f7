@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-f7",
-  "version": "0.2.9",
+  "version": "0.2.8",
   "description": "Ember CLI Framework7 integration.",
   "directories": {
     "doc": "doc",
