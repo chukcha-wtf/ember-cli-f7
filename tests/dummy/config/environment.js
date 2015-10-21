@@ -17,7 +17,7 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'img-src': "'self' data:",
+      'img-src': "'self' data: http://lorempixel.com",
       'style-src': "'self' 'unsafe-inline'"
     },
 

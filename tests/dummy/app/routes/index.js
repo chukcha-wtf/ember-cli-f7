@@ -4,7 +4,8 @@ import F7Route from 'ember-cli-f7/mixins/f7-route';
 export default Ember.Route.extend(F7Route, {
   model() {
     const items = Ember.A([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item)=>{
-                    return `Item ${item}`;
+                    const imageIndex = Math.round(Math.random()) + 9;
+                    return {name: `Item ${item}`, image: `http://lorempixel.com/100/100/cats/${imageIndex}`};
                   }));
 
     return new Ember.RSVP.Promise((resolve)=>{
@@ -32,7 +33,8 @@ export default Ember.Route.extend(F7Route, {
       let items = this.get('controller.items');
       Ember.run.later(function(){
         items.addObjects([21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32].map((item)=>{
-                            return `Item ${item}`;
+                            const imageIndex = Math.round(Math.random()*9) + 1;
+                            return {name: `Item ${item}`, image: `http://lorempixel.com/100/100/technics/${imageIndex}`};
                           }));
         deferred.resolve();
       }, 1000);

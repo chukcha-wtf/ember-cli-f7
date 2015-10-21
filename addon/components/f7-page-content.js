@@ -9,6 +9,10 @@ export default Ember.Component.extend({
   pullToRefresh: Ember.computed.notEmpty('attrs.onPullToRefresh'),
   loading: false,
 
+  didInsertElement() {
+    this.f7.initImagesLazyLoad(this.$());
+  },
+
   setupPullToRefresh: Ember.on('didInsertElement', function(){
     if (this.get('pullToRefresh')) {
       this.get('f7').initPullToRefresh(this.$());

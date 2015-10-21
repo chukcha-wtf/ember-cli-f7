@@ -15,8 +15,11 @@
         {{#f7-swipeout}}
           <div class="swipeout-content">
             <a href="#" class="item-link item-content" {{action 'goTo' item}}>
+              <div class="item-media">
+                <img data-src={{item.image}} class="lazy">
+              </div>
               <div class="item-inner">
-                <div class="item-title">{{item}}</div>
+                <div class="item-title">{{item.name}}</div>
               </div>
             </a>
           </div>
