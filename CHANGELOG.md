@@ -1,6 +1,6 @@
 # Ember-cli-F7 Changelog
 
-### 0.2.8 (Aug 7, 2015)
+### 0.2.8 (Oct 21, 2015)
 - [FIX] images lazy loading
 
 ### 0.2.7 (Oct 9, 2015)
