@@ -1,6 +1,9 @@
 # Ember-cli-F7 Changelog
 
-### 0.2.7 (Aug 7, 2015)
+### 0.2.8 (Aug 7, 2015)
+- [FIX] images lazy loading
+
+### 0.2.7 (Oct 9, 2015)
 - [FIX] loading indicator on infinite scroll
 - [ADD] support for 'data-distance' attribute on infinite scroll
 - [FIX] issue with searchbar component initialization
